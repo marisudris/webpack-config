@@ -8,6 +8,9 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
     mode,
+    output: {
+        assetModuleFilename: 'images/[hash][ext][query]',
+    },
     module: {
         rules: [
             {
@@ -25,6 +28,10 @@ module.exports = {
                     'postcss-loader',
                     'sass-loader',
                 ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)/i,
+                type: 'asset',
             },
         ],
     },
