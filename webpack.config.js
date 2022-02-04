@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
     mode,
     output: {
-        path: __dirname + '/public',
+        path: path.resolve(__dirname, 'pub'),
         assetModuleFilename: 'images/[hash][ext][query]',
     },
     module: {
@@ -49,6 +49,7 @@ module.exports = {
     devServer: {
         static: './dist',
         hot: true,
+        open: true,
     },
     devtool: 'source-map',
 };
